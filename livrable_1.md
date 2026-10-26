@@ -197,6 +197,7 @@ Ulysse • Quentin • Jason</p>
   - [5.2. Conformité HDS (Hébergeur de Données de Santé) et Sécurité Infrastructure](#52-conformité-hds-hébergeur-de-données-de-santé-et-sécurité-infrastructure)
   - [5.3. Gestion des Rôles et Droits d'Accès (Matrice RBAC)](#53-gestion-des-rôles-et-droits-daccès-matrice-rbac)
   - [5.4. Traçabilité des Flux (Data Lineage) et Cycle de Vie des Données](#54-traçabilité-des-flux-data-lineage-et-cycle-de-vie-des-données)
+- [Conclusion](#conclusion)
 
 <div class="page-break"></div>
 
@@ -692,3 +693,19 @@ Afin d'assurer l'auditabilité complète de l'entrepôt décisionnel :
 1. **Métadonnées techniques d'audit dans chaque table :** Chaque table du Data Mart intègre deux colonnes techniques d'audit : `date_chargement_etl` (`TIMESTAMP`) et `source_fichier_origine` (`VARCHAR`) permettant de savoir exactement quand et par quel job une ligne a été insérée.
 2. **Journalisation centralisée (*Logging*) :** Chaque exécution de job Talend génère un journal d'exécution (`nb_lignes_lues`, `nb_lignes_inserees`, `nb_lignes_rejetees`, `duree_execution`, `statut_job`) historisé dans une table de suivi technique `TECH_ETL_LOGS`.
 3. **Journalisation des accès utilisateurs :** Toute connexion et requête effectuée sur l'entrepôt Hive ou sur les rapports Power BI est tracée (horodatage, identifiant de l'utilisateur) conformément aux exigences de traçabilité HDS.
+
+
+# Conclusion
+
+En conclusion, ce premier livrable pose les fondations du projet décisionnel du CHU en définissant une architecture complète, moderne et conforme aux contraintes du sujet.
+
+Trois choix structurants :
+
+- **Une architecture scalable et évolutive :** Le Data Lakehouse en architecture Médaillon (Bronze / Silver / Gold) sur cluster Cloudera Hadoop (HDFS + Hive) offre un socle distribué, robuste et prêt pour le volume de données. La logique ELT / ETL hybride, orchestrée via Talend Open Studio, garantit des flux de données fiables et auditables.
+
+- **Un modèle dimensionnel :** La constellation d'étoiles conforme à la méthodologie Kimball avec 4 tables de faits ainsi que 6 tables de dimensions. Cela évite l'anti-pattern de la table de faits unique creuse, tout en maximisant les performances OLAP et en garantissant l'intégrité référentielle dans la couche Gold.
+
+- **Une conformité réglementaire native :** Le traitement de données de santé impose l'exigence RGPD et la certification HDS.
+
+**En synthèse,** ce référentiel de données constitue le contrat de base sur lequel les livrables suivants pourront s'appuyer : la validation de cette architecture et de ce modèle dimensionnel débloque la phase d'implémentation des flux ETL, des scripts Hive et de l'exploitation analytique en couche Gold (Hive / PostgreSQL), avec l'assurance que la solution sera à la fois performante, maintenable et légalement conforme.
+ 
