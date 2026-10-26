@@ -128,7 +128,7 @@
 <div class="cover-wrapper">
 
 <div class="cover-school">ÉCOLE D'INGÉNIEURS CESI</div>
-<div class="cover-sub">BLOC STOCKAGE ET BIG DATA — PGE A4 FISA / A3 FISE</div>
+<div class="cover-sub">BLOC STOCKAGE ET BIG DATA — A4 FISA</div>
 
 <div class="cover-livrable">LIVRABLE 1</div>
 <div class="cover-title">RÉFÉRENTIEL DE DONNÉES ET ARCHITECTURE</div>
@@ -150,8 +150,6 @@ flowchart LR
 
 <p><strong>Membres du Groupe Projet :</strong><br>
 Ulysse • Quentin • Jason</p>
-
-<p><strong>Promotion :</strong> Octobre 2026</p>
 
 </div>
 
