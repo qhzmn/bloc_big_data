@@ -305,6 +305,7 @@ Afin de respecter les exigences non fonctionnelles (**ratio coût-efficacité**,
 | **Talend Open Studio for Big Data** | • Connecteurs natifs PostgreSQL, FTP, CSV, JSON, HDFS et Hive.<br>• Composant `tMap` idéal pour les jointures FINESS/INSEE et l'anonymisation.<br>• Génération de code Java/MapReduce sans coût de licence. | • Interface lourde en mémoire sur le poste développeur. | **RETENU**<br>Excellent ratio coût-efficacité (Open Source), maîtrise rapide et gestion native des rejets et de la qualité des données. |
 | **Apache NiFi** | • Excellent pour le routage de flux en temps réel (Streaming). | • Moins adapté aux transformations relationnelles complexes et jointures multi-sources en étoile. | Écarté (Utilisé uniquement en complément si flux temps réel futur). |
 | **dbt (data build tool)** | • Parfait pour les transformations SQL dans l'entrepôt (T de l'ELT). | • Ne gère pas l'extraction depuis FTP/CSV ni l'anonymisation avant chargement. | Écarté pour l'ingestion initiale. |
+| **Python** | • Flexibilité totale : gestion de tous les types de fichiers. • Adapté à toutes les étapes de la chaîne de traitement (Bronze, Silver, Gold). | • Nécessite de maintenir du code source. • Gestion manuelle des exceptions et des rejets. | **RETENU**<br>Idéale pour orchestrer les pipelines personnalisés et couvrir le cycle complet du nettoyage à l'agrégation.
 
 ### B. Brique de Stockage et Moteur Analytique
 | Outil évalué | Avantages | Inconvénients | Choix & Justification |
