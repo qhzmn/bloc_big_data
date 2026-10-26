@@ -1,15 +1,138 @@
-<div align="center" style="padding-top: 60px; padding-bottom: 60px;">
+<style>
+  /* Styles optimisés pour l'extension VS Code Markdown PDF (yzane) */
+  body {
+    font-family: "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    font-size: 10.5pt;
+    line-height: 1.5;
+    color: #1e293b;
+  }
+  h1, h2, h3, h4 {
+    color: #0f172a;
+    page-break-after: avoid;
+    break-after: avoid;
+  }
+  h1 {
+    font-size: 18pt;
+    border-bottom: 2px solid #cbd5e1;
+    padding-bottom: 6px;
+    margin-top: 0;
+  }
+  h2 {
+    font-size: 13.5pt;
+    margin-top: 18px;
+    color: #1e3a8a;
+  }
+  h3 {
+    font-size: 11.5pt;
+    margin-top: 14px;
+  }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 12px 0;
+    font-size: 9pt;
+    page-break-inside: auto;
+  }
+  tr {
+    page-break-inside: avoid;
+    break-inside: avoid;
+  }
+  th {
+    background-color: #f1f5f9 !important;
+    color: #0f172a;
+    font-weight: 700;
+    text-align: left;
+    padding: 7px 9px;
+    border-top: 1.5px solid #94a3b8;
+    border-bottom: 1.5px solid #94a3b8;
+  }
+  td {
+    padding: 6px 9px;
+    border-bottom: 1px solid #e2e8f0;
+    vertical-align: top;
+  }
+  blockquote {
+    background-color: #f8fafc;
+    border-left: 4px solid #2563eb;
+    padding: 10px 14px;
+    margin: 12px 0;
+    page-break-inside: avoid;
+  }
+  /* Conteneurs de diagrammes Mermaid : empêche le débordement sur plusieurs pages */
+  .diagram {
+    text-align: center;
+    margin: 14px auto;
+    padding: 10px;
+    border: 1px solid #e2e8f0;
+    border-radius: 6px;
+    background-color: #ffffff;
+    page-break-inside: avoid;
+    break-inside: avoid;
+  }
+  .diagram svg {
+    max-width: 100% !important;
+    height: auto !important;
+  }
+  .diagram-flow svg {
+    max-height: 520px !important;
+  }
+  .diagram-logical svg {
+    max-height: 680px !important;
+  }
+  .diagram-etl svg {
+    max-height: 360px !important;
+  }
+  .page-break {
+    page-break-before: always;
+    break-before: page;
+  }
+  /* Page de garde sans titres H1/H2 pour ne pas polluer le sommaire */
+  .cover-wrapper {
+    text-align: center;
+    padding-top: 50px;
+    padding-bottom: 40px;
+  }
+  .cover-school {
+    font-size: 22pt;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    border-bottom: 1px solid #94a3b8;
+    padding-bottom: 10px;
+    margin-bottom: 12px;
+  }
+  .cover-sub {
+    font-size: 13pt;
+    color: #334155;
+    margin-bottom: 45px;
+  }
+  .cover-livrable {
+    font-size: 24pt;
+    font-weight: 800;
+    border-bottom: 1px solid #94a3b8;
+    padding-bottom: 10px;
+    margin-bottom: 14px;
+  }
+  .cover-title {
+    font-size: 16pt;
+    font-weight: 700;
+    margin-bottom: 10px;
+  }
+  .cover-subtitle {
+    font-size: 12pt;
+    font-style: italic;
+    color: #475569;
+    margin-bottom: 35px;
+  }
+</style>
 
-# ÉCOLE D'INGÉNIEURS CESI
-### BLOC STOCKAGE ET BIG DATA — PGE A4 FISA / A3 FISE
+<div class="cover-wrapper">
 
-<br><br>
+<div class="cover-school">ÉCOLE D'INGÉNIEURS CESI</div>
+<div class="cover-sub">BLOC STOCKAGE ET BIG DATA — PGE A4 FISA / A3 FISE</div>
 
-# **LIVRABLE 1**
-## **RÉFÉRENTIEL DE DONNÉES ET ARCHITECTURE**
-### *Conception de l'Entrepôt de Données Décisionnel (EDD) du Groupe CHU (Cloud Healthcare Unit)*
-
-<br><br>
+<div class="cover-livrable">LIVRABLE 1</div>
+<div class="cover-title">RÉFÉRENTIEL DE DONNÉES ET ARCHITECTURE</div>
+<div class="cover-subtitle">Conception de l'Entrepôt de Données Décisionnel (EDD) du Groupe CHU (Cloud Healthcare Unit)</div>
 
 <div class="diagram diagram-cover">
 
@@ -25,23 +148,17 @@ flowchart LR
 
 <br><br>
 
-**Membres du Groupe Projet :**  
-Ulysse • Quentin • Jason
+<p><strong>Membres du Groupe Projet :</strong><br>
+Ulysse • Quentin • Jason</p>
 
-**Promotion :** Octobre 2026  
+<p><strong>Promotion :</strong> Octobre 2026</p>
 
 </div>
 
-<div style="page-break-after: always;"></div>
+<div class="page-break"></div>
 
 ## Sommaire
 
-- [ÉCOLE D'INGÉNIEURS CESI](#école-dingénieurs-cesi)
-    - [BLOC STOCKAGE ET BIG DATA — PGE A4 FISA / A3 FISE](#bloc-stockage-et-big-data--pge-a4-fisa--a3-fise)
-- [**LIVRABLE 1**](#livrable-1)
-  - [**RÉFÉRENTIEL DE DONNÉES ET ARCHITECTURE**](#référentiel-de-données-et-architecture)
-    - [*Conception de l'Entrepôt de Données Décisionnel (EDD) du Groupe CHU (Cloud Healthcare Unit)*](#conception-de-lentrepôt-de-données-décisionnel-edd-du-groupe-chu-cloud-healthcare-unit)
-  - [Sommaire](#sommaire)
 - [1. Introduction \& Cadrage Métier du Projet CHU](#1-introduction--cadrage-métier-du-projet-chu)
   - [1.1. Contexte et Objectifs de la Transformation Digitale](#11-contexte-et-objectifs-de-la-transformation-digitale)
   - [1.2. Inventaire et Qualification des 4 Sources de Données](#12-inventaire-et-qualification-des-4-sources-de-données)
@@ -83,9 +200,7 @@ Ulysse • Quentin • Jason
   - [5.3. Gestion des Rôles et Droits d'Accès (Matrice RBAC)](#53-gestion-des-rôles-et-droits-daccès-matrice-rbac)
   - [5.4. Traçabilité des Flux (Data Lineage) et Cycle de Vie des Données](#54-traçabilité-des-flux-data-lineage-et-cycle-de-vie-des-données)
 
-<div style="page-break-after: always;"></div>
-
----
+<div class="page-break"></div>
 
 # 1. Introduction & Cadrage Métier du Projet CHU
 
@@ -96,8 +211,6 @@ L'objectif de ce premier livrable est de définir l'architecture complète et le
 * Centraliser et croiser des sources de données fortement hétérogènes (bases SQL, fichiers plats CSV/JSON, Open Data INSEE).
 * Répondre aux besoins analytiques de deux grands profils d'utilisateurs : les **Praticiens** (médecins, cadres infirmiers) et la **Direction d'établissement** (administrateurs, décideurs).
 * Garantir un haut niveau de **performance analytique (OLAP)**, d'**élasticité**, un excellent **ratio coût-efficacité**, ainsi qu'une conformité stricte au **RGPD** et à la certification **HDS (Hébergeur de Données de Santé)**.
-
----
 
 ## 1.2. Inventaire et Qualification des 4 Sources de Données
 
@@ -110,8 +223,6 @@ L'audit initial met en évidence **4 sources de données disparates** couvrant p
 | **Source 3** | **Enquêtes de Satisfaction** | Fichiers plats **CSV / JSON** via **FTP** | Notes de satisfaction émises par les usagers par établissement de santé et par période (ex: année 2020). | Moyenne (Collecte périodique par campagnes) | **Modérée** : Vérifier l'absence de données nominatives dans les commentaires. |
 | **Source 4** | **Répertoire National des Décès (INSEE)** | Fichiers plats **CSV** Open Data via **FTP** | Décès enregistrés en France (sexe, date de naissance, date et commune/région INSEE de décès, notamment 2019). | Élevée (~600 000 lignes / an en France) | **Faible (Open Data)** : Données publiques de personnes décédées, mais à agréger par région. |
 
----
-
 ## 1.3. Recensement Structuré des Besoins Utilisateurs par Profil
 
 Afin de concevoir un modèle dimensionnel pertinent, nous avons segmenté les besoins analytiques selon les deux catégories d'utilisateurs cibles :
@@ -119,7 +230,7 @@ Afin de concevoir un modèle dimensionnel pertinent, nous avons segmenté les be
 ### A. Profil 1 : Praticiens (Médecins, Chefs de service, Personnel infirmier)
 * **Objectif métier :** Suivre la pathologie des patients, évaluer la charge de travail médicale par spécialité/professionnel et adapter les protocoles de soins selon le profil démographique (âge, sexe) et épidémiologique.
 * **Indicateurs (KPI) attendus :**
-  * **KPI-P1 :** Taux et volume de consultation des patients par rapport à un **diagnostic $X$** sur une **période de temps $Y$**.
+  * **KPI-P1 :** Taux et volume de consultation des patients par rapport à un **diagnostic *X*** sur une **période de temps *Y***.
   * **KPI-P2 :** Taux et volume d'hospitalisation des patients par rapport à des **diagnostics** sur une **période donnée**.
   * **KPI-P3 :** Taux d'hospitalisation ventilé par **sexe** et par **tranche d'âge**.
   * **KPI-P4 :** Taux et volume de consultation par **professionnel de santé** (et par spécialité).
@@ -128,13 +239,11 @@ Afin de concevoir un modèle dimensionnel pertinent, nous avons segmenté les be
 ### B. Profil 2 : Direction d'Établissement (Administrateurs, Contrôle de gestion, Qualité)
 * **Objectif métier :** Piloter l'affluence hospitalière, optimiser le taux d'occupation des lits, comparer la performance entre établissements/régions et mesurer la qualité perçue par les usagers.
 * **Indicateurs (KPI) attendus :**
-  * **KPI-D1 :** Taux de consultation des patients dans un **établissement $X$** sur une **période de temps $Y$**.
-  * **KPI-D2 :** Taux global d'hospitalisation des patients sur une **période donnée $Y$** (et durée moyenne de séjour).
+  * **KPI-D1 :** Taux de consultation des patients dans un **établissement *X*** sur une **période de temps *Y***.
+  * **KPI-D2 :** Taux global d'hospitalisation des patients sur une **période donnée *Y*** (et durée moyenne de séjour).
   * **KPI-D3 :** Taux global de **satisfaction des usagers** par établissement et par **région** (focus année 2020).
 
-<div style="page-break-after: always;"></div>
-
----
+<div class="page-break"></div>
 
 # 2. Architecture Cible Décisionnelle (Paradigme Lakehouse)
 
@@ -152,64 +261,41 @@ Pour concilier la variété des sources (SQL, CSV, FTP) avec la rigueur d'un ent
    * **Rôle :** Exposer le **Modèle Dimensionnel en Étoile (Constellation Kimball)** composé des Tables de Dimensions et des Tables de Faits agrégées, partitionnées et indexées.
    * **Caractéristique :** *Schema-on-Write*. Alimente directement l'outil de Business Intelligence (**Microsoft Power BI**) pour les tableaux de bord des praticiens et de la direction.
 
----
-
 ## 2.2. Schéma Global des Flux de Données de Bout en Bout
 
 <div class="diagram diagram-flow">
 
 ```mermaid
-flowchart TD
-    subgraph SOURCES ["1. SOURCES DE DONNÉES HÉTÉROGÈNES"]
-        SRC1[("Source 1 : PostgreSQL (HCG)\nAdmissions, Consultations,\nDiagnostics, Séjours, Patients")]
-        SRC2["Source 2 : Fichiers CSV\nRéférentiel Établissements\n(Codes FINESS / INSEE)"]
-        SRC3["Source 3 : Serveur FTP\nNotes de Satisfaction\n(CSV / JSON - 2020)"]
-        SRC4["Source 4 : Serveur FTP\nDécès en France INSEE\n(Open Data - 2019)"]
+%%{init: {'flowchart': {'nodeSpacing': 20, 'rankSpacing': 30}} }%%
+flowchart LR
+    subgraph SOURCES ["1. SOURCES HÉTÉROGÈNES"]
+        SRC1[("Source 1 : PostgreSQL\nActes, Consultations,\nDiagnostics, Patients")]
+        SRC2["Source 2 : CSV\nÉtablissements\n(FINESS / INSEE)"]
+        SRC3["Source 3 : FTP\nSatisfaction\n(CSV / JSON)"]
+        SRC4["Source 4 : FTP\nDécès INSEE\n(Open Data)"]
     end
 
-    subgraph LAKEHOUSE ["2. PLATEFORME DATA LAKEHOUSE DISTRIBUÉE (INFRASTRUCTURE CERTIFIÉE HDS)"]
-        
-        subgraph BRONZE ["Couche BRONZE (HDFS - Zone Brute)"]
-            B_PG["Dépôt Brut Actes HCG"]
-            B_ETAB["Dépôt Brut FINESS/INSEE"]
-            B_SAT["Dépôt Brut Satisfaction"]
-            B_DEC["Dépôt Brut Décès INSEE"]
-        end
-
-        ETL1{{"Jobs ETL Talend (Phase 1 : Qualification & RGPD)\n- Suppression Nom/Prénom/NIR & Hachage SHA-256\n- Dédoublonnage & Filtrage des valeurs nulles\n- Standardisation des dates (ISO YYYY-MM-DD)"}}
-
-        subgraph SILVER ["Couche SILVER (HDFS Parquet - Zone Propre & Anonymisée)"]
-            S_DATA[("Données Qualifiées, Enrichies (Régions INSEE)\net Pseudonymisées (RGPD)")]
-        end
-
-        ETL2{{"Jobs ETL Talend (Phase 2 : Modélisation Kimball)\n- Chargement des 6 Dimensions (Clés de substitution)\n- Calcul des Mesures & Chargement des 4 Tables de Faits"}}
-
-        subgraph GOLD ["Couche GOLD (Apache Hive - Data Mart en Constellation d'Étoiles)"]
-            DIM["Dimensions Conformes :\nDIM_TEMPS | DIM_ETABLISSEMENT\nDIM_LOCALISATION | DIM_PATIENT\nDIM_DIAGNOSTIC | DIM_PROFESSIONNEL"]
-            FAIT["Tables de Faits :\nFAIT_CONSULTATIONS | FAIT_HOSPITALISATIONS\nFAIT_SATISFACTION | FAIT_DECES"]
-            DIM --- FAIT
-        end
+    subgraph LAKEHOUSE ["2. PLATEFORME DATA LAKEHOUSE (CERTIFIÉE HDS)"]
+        BRONZE[("Couche BRONZE\n(HDFS Brut)\nDépôt natif\ndes 4 sources")]
+        ETL1["Jobs ETL Talend (Phase 1)\n- Pseudonymisation SHA-256\n- Suppression Nom/Prénom/NIR\n- Dates ISO (YYYY-MM-DD)"]
+        SILVER[("Couche SILVER\n(HDFS Parquet)\nDonnées propres,\nenrichies (Régions)\n& anonymisées")]
+        ETL2["Jobs ETL Talend (Phase 2)\n- Clés de substitution\n- Alim. 6 Dimensions\n- Alim. 4 Tables de Faits"]
+        GOLD[("Couche GOLD\n(Apache Hive)\nConstellation d'Étoiles\nDimensions & Faits")]
     end
 
-    subgraph RESTITUTION ["3. EXPLOITATION & VISUALISATION BI"]
-        PBI["Microsoft Power BI / Cube OLAP\n- Dashboard Praticiens (Suivi médical & Pathologies)\n- Dashboard Direction (Activité, Occupation & Satisfaction)"]
+    subgraph RESTITUTION ["3. EXPLOITATION BI"]
+        PBI["Microsoft Power BI\n& Cube OLAP\n- Vue Praticiens\n- Vue Direction"]
     end
 
-    SRC1 --> B_PG
-    SRC2 --> B_ETAB
-    SRC3 --> B_SAT
-    SRC4 --> B_DEC
-
-    B_PG & B_ETAB & B_SAT & B_DEC --> ETL1
-    ETL1 --> S_DATA
-    S_DATA --> ETL2
-    ETL2 --> GOLD
+    SRC1 & SRC2 & SRC3 & SRC4 --> BRONZE
+    BRONZE --> ETL1 --> SILVER
+    SILVER --> ETL2 --> GOLD
     GOLD --> PBI
 ```
 
 </div>
 
-<div style="page-break-after: always;"></div>
+<div class="page-break"></div>
 
 ## 2.3. Préconisations et Justification de la Stack Technologique
 
@@ -218,25 +304,23 @@ Afin de respecter les exigences non fonctionnelles (**ratio coût-efficacité**,
 ### A. Brique d'Intégration (ETL / ELT)
 | Outil évalué | Avantages | Inconvénients | Choix & Justification |
 | :--- | :--- | :--- | :--- |
-| **Talend Open Studio for Big Data** | • Connecteurs natifs PostgreSQL, FTP, CSV, JSON, HDFS et Hive.<br>• Composant `tMap` idéal pour les jointures FINESS/INSEE et l'anonymisation.<br>• Génération de code Java/MapReduce sans coût de licence. | • Interface lourde en mémoire sur le poste développeur. | ** RETENU**<br>Excellent ratio coût-efficacité (Open Source), maîtrise rapide et gestion native des rejets et de la qualité des données. |
-| **Apache NiFi** | • Excellent pour le routage de flux en temps réel (Streaming). | • Moins adapté aux transformations relationnelles complexes et jointures multi-sources en étoile. |  Écarté (Utilisé uniquement en complément si flux temps réel futur). |
-| **dbt (data build tool)** | • Parfait pour les transformations SQL dans l'entrepôt (T de l'ELT). | • Ne gère pas l'extraction depuis FTP/CSV ni l'anonymisation avant chargement. |  Écarté pour l'ingestion initiale. |
+| **Talend Open Studio for Big Data** | • Connecteurs natifs PostgreSQL, FTP, CSV, JSON, HDFS et Hive.<br>• Composant `tMap` idéal pour les jointures FINESS/INSEE et l'anonymisation.<br>• Génération de code Java/MapReduce sans coût de licence. | • Interface lourde en mémoire sur le poste développeur. | **RETENU**<br>Excellent ratio coût-efficacité (Open Source), maîtrise rapide et gestion native des rejets et de la qualité des données. |
+| **Apache NiFi** | • Excellent pour le routage de flux en temps réel (Streaming). | • Moins adapté aux transformations relationnelles complexes et jointures multi-sources en étoile. | Écarté (Utilisé uniquement en complément si flux temps réel futur). |
+| **dbt (data build tool)** | • Parfait pour les transformations SQL dans l'entrepôt (T de l'ELT). | • Ne gère pas l'extraction depuis FTP/CSV ni l'anonymisation avant chargement. | Écarté pour l'ingestion initiale. |
 
 ### B. Brique de Stockage et Moteur Analytique
 | Outil évalué | Avantages | Inconvénients | Choix & Justification |
 | :--- | :--- | :--- | :--- |
-| **HDFS + Apache Hive (avec stockage Parquet)** | • Scalabilité horizontale (*Scale-out*) sur cluster.<br>• Tolérance aux pannes (réplication x3).<br>• Requêtage SQL standard (HiveQL) avec **partitionnement** et **bucketing**. | • Latence légèrement supérieure sur de très petits volumes si non optimisé (Tez/Spark requis). | ** RETENU (Cible Big Data)**<br>Permet de gérer à la fois le Data Lake (Bronze/Silver sur HDFS) et le Data Warehouse (Gold sous Hive). *(Compatible avec une implémentation PostgreSQL analytique partitionnée en environnement restreint).* |
-| **Google BigQuery / Snowflake** | • Serverless ultra-rapide et élastique. | • Coût facturé à la requête et contraintes fortes de souveraineté Cloud Act / HDS. |  Écarté (Risque budgétaire et réglementaire HDS). |
+| **HDFS + Apache Hive (avec stockage Parquet)** | • Scalabilité horizontale (*Scale-out*) sur cluster.<br>• Tolérance aux pannes (réplication x3).<br>• Requêtage SQL standard (HiveQL) avec **partitionnement** et **bucketing**. | • Latence légèrement supérieure sur de très petits volumes si non optimisé (Tez/Spark requis). | **RETENU (Cible Big Data)**<br>Permet de gérer à la fois le Data Lake (Bronze/Silver sur HDFS) et le Data Warehouse (Gold sous Hive). *(Compatible avec une implémentation PostgreSQL analytique partitionnée en environnement restreint).* |
+| **Google BigQuery / Snowflake** | • Serverless ultra-rapide et élastique. | • Coût facturé à la requête et contraintes fortes de souveraineté Cloud Act / HDS. | Écarté (Risque budgétaire et réglementaire HDS). |
 
 ### C. Brique de Visualisation (Business Intelligence)
 | Outil évalué | Avantages | Inconvénients | Choix & Justification |
 | :--- | :--- | :--- | :--- |
-| **Microsoft Power BI** | • Connecteurs natifs Hive / PostgreSQL.<br>• Moteur colonnaire en mémoire (*VertiPaq*) ultra-rapide.<br>• Gestion fine de la sécurité par profil (**RLS - Row-Level Security** : Praticiens vs Direction). | • Licence Pro requise pour le partage Cloud, mais gratuit en version Desktop pour la maquette. | ** RETENU**<br>Ergonomie supérieure pour le *Data Storytelling*, cartes géographiques natives par région INSEE et filtrage dynamique. |
-| **Apache Superset / Metabase** | • Open Source et léger en mode Web. | • Moins riche pour la modélisation DAX et le storytelling avancé. |  Solution de repli secondaire. |
+| **Microsoft Power BI** | • Connecteurs natifs Hive / PostgreSQL.<br>• Moteur colonnaire en mémoire (*VertiPaq*) ultra-rapide.<br>• Gestion fine de la sécurité par profil (**RLS - Row-Level Security** : Praticiens vs Direction). | • Licence Pro requise pour le partage Cloud, mais gratuit en version Desktop pour la maquette. | **RETENU**<br>Ergonomie supérieure pour le *Data Storytelling*, cartes géographiques natives par région INSEE et filtrage dynamique. |
+| **Apache Superset / Metabase** | • Open Source et léger en mode Web. | • Moins riche pour la modélisation DAX et le storytelling avancé. | Solution de repli secondaire. |
 
-<div style="page-break-after: always;"></div>
-
----
+<div class="page-break"></div>
 
 # 3. Modélisation Conceptuelle et Logique du Schéma Décisionnel
 
@@ -250,13 +334,12 @@ L'analyse des besoins utilisateurs met en évidence **4 processus métiers disti
 > **Justification du choix de modélisation :**  
 > Plutôt que de créer une table de faits unique qui contiendrait une majorité de valeurs `NULL` (anti-pattern), nous appliquons la méthodologie **Ralph Kimball** en concevant un **Modèle en Constellation d'Étoiles (Fact Constellation)** composé de **4 Tables de Faits** partageant **6 Tables de Dimensions Conformes** (dénormalisées pour minimiser les jointures `JOIN` et maximiser les performances de lecture OLAP).
 
----
-
 ## 3.2. Modèle Logique Global (Schéma en Constellation d'Étoiles)
 
 <div class="diagram diagram-logical">
 
 ```mermaid
+%%{init: {'er': {'layoutDirection': 'LR', 'entityPadding': 8, 'fontSize': 11}} }%%
 erDiagram
     DIM_TEMPS ||--o{ FAIT_CONSULTATIONS : "id_temps"
     DIM_TEMPS ||--o{ FAIT_HOSPITALISATIONS : "id_temps_entree"
@@ -383,7 +466,7 @@ erDiagram
 
 </div>
 
-<div style="page-break-after: always;"></div>
+<div class="page-break"></div>
 
 ## 3.3. Dictionnaire de Données Complet
 
@@ -451,7 +534,7 @@ erDiagram
 | `specialite` | `VARCHAR(100)`| `NOT NULL` | - | Spécialité médicale exercée. |
 | `fonction` | `VARCHAR(100)`| `NULL` | - | Catégorie (Médecin, Chirurgien, Infirmier...). |
 
----
+<div class="page-break"></div>
 
 ### B. Tables de Faits (Mesures et Événements)
 
@@ -484,8 +567,6 @@ erDiagram
   * `nb_deces` (`INT`, valeur `1` par décès enregistré — additif `SUM`).
   * `age_deces` (`SMALLINT`, âge au moment du décès — agrégé par moyenne `AVG`).
 
----
-
 ## 3.4. Matrice de Couverture des Indicateurs Métiers
 
 | Besoin Utilisateur (Cahier des Charges) | Table de Faits sollicitée | Dimensions jointes (`JOIN`) | Formule Analytique SQL / BI |
@@ -499,9 +580,7 @@ erDiagram
 | **7. Nombre de décès par région sur l'année 2019** | `FAIT_DECES` | `DIM_LOCALISATION_INSEE`, `DIM_TEMPS` | `SUM(nb_deces)` avec `WHERE annee = 2019 GROUP BY nom_region` |
 | **8. Taux global de satisfaction par région sur l'année 2020** | `FAIT_SATISFACTION` | `DIM_LOCALISATION_INSEE`, `DIM_ETABLISSEMENT`, `DIM_TEMPS` | `AVG(note_satisfaction)` pondéré par `nb_repondants` (`WHERE annee = 2020`) |
 
-<div style="page-break-after: always;"></div>
-
----
+<div class="page-break"></div>
 
 # 4. Spécifications Fonctionnelles des Jobs ETL
 
@@ -537,8 +616,6 @@ flowchart LR
 
 </div>
 
----
-
 ## 4.2. Règles de Transformation, Formatage et Enrichissement
 
 | ID Règle | Champ / Flux concerné | Problématique Source | Règle de Transformation Fonctionnelle (Composant Talend `tMap`) |
@@ -550,8 +627,6 @@ flowchart LR
 | **RT-05** | **Calcul Durée de Séjour** (`FAIT_HOSPITALISATIONS`) | Seules les dates d'entrée et de sortie sont présentes dans PostgreSQL. | Calcul : `TalendDate.diffDate(date_sortie, date_entree, "dd")`. Si la sortie a lieu le même jour (ambulatoire), forcer `duree_sejour_jours = 1`. |
 | **RT-06** | **Normalisation Code FINESS** (`DIM_ETABLISSEMENT`) | Codes FINESS parfois sur 8 caractères (zéro initial tronqué par CSV/Excel). | Formatage `StringHandling.LPAD(code_finess, 9, "0")` et `TRIM()` pour garantir la jointure exacte entre PostgreSQL, le CSV Établissements et le FTP Satisfaction. |
 
----
-
 ## 4.3. Gestion des Valeurs Nulles, des Doublons, des Erreurs et des Rejets
 
 1. **Gestion des Doublons (Unicité) :**
@@ -561,9 +636,7 @@ flowchart LR
    * **Mesures nulles :** Remplacement des notes ou durées nulles par la valeur par défaut ou rejet si l'enregistrement est totalement corrompu.
 3. **Gestion des Erreurs et Table des Rejets :**
    * Dans chaque composant `tFileInputDelimited` et `tMap`, le flux **`Rejects` (Rejets)** est activé.
-   * Toute ligne présentant une erreur de format critique (ex: date de sortie antérieure à la date d'entrée, note de satisfaction négative ou $> 100$, ligne CSV mal formée) est déroutée vers un répertoire dédié `/datalake/rejects/YYYYMMDD_nom_job_rejets.csv` avec le code et le motif de l'erreur (`errorCode`, `errorMessage`), accompagné d'une alerte dans les logs (`tLogCatcher`).
-
----
+   * Toute ligne présentant une erreur de format critique (ex: date de sortie antérieure à la date d'entrée, note de satisfaction négative ou `> 100`, ligne CSV mal formée) est déroutée vers un répertoire dédié `/datalake/rejects/YYYYMMDD_nom_job_rejets.csv` avec le code et le motif de l'erreur (`errorCode`, `errorMessage`), accompagné d'une alerte dans les logs (`tLogCatcher`).
 
 ## 4.4. Planification et Fréquence d'Exécution des Flux
 
@@ -574,9 +647,7 @@ flowchart LR
 | **Intégration Enquêtes Satisfaction** | Source 3 (FTP) | Incrémental par campagne | **Mensuelle / Trimestrielle** | Dès détection d'un nouveau fichier sur le FTP. |
 | **Intégration Décès Open Data INSEE** | Source 4 (FTP) | Incrémental mensuel / annuel | **Mensuelle** | Le 5 de chaque mois à `03h00`. |
 
-<div style="page-break-after: always;"></div>
-
----
+<div class="page-break"></div>
 
 # 5. Plan de Gouvernance des Données et Sécurité (RGPD & HDS)
 
@@ -597,16 +668,12 @@ Nous appliquons le principe de **Privacy by Design** (Protection des données d�
    * Les fichiers bruts déposés dans la couche **Bronze** (qui contiennent encore les extractions brutes avant passage de l'ETL) sont purgés automatiquement après **7 jours** une fois la validation de chargement en couche Silver confirmée.
    * Les données anonymisées/pseudonymisées des couches Silver et Gold sont conservées pour une durée maximale de **10 ans** à des fins d'études épidémiologiques et de pilotage historique.
 
----
-
 ## 5.2. Conformité HDS (Hébergeur de Données de Santé) et Sécurité Infrastructure
 
 * **Hébergement certifié HDS :** L'infrastructure cible (serveurs physiques ou Cloud privé/public hébergeant PostgreSQL, le serveur FTP et le cluster Cloudera Hadoop) doit obligatoirement être opérée par un hébergeur disposant de la certification **HDS (ISO 27001 + exigences santé françaises)** et localisé au sein de l'**Union Européenne** (immunité face aux lois extraterritoriales type *Cloud Act*).
 * **Chiffrement de bout en bout :**
   * **Chiffrement en transit (*In-Transit*) :** Flux FTP remplacés par du **SFTP (SSH File Transfer Protocol)** ou **FTPS (TLS 1.3)** ; connexions JDBC PostgreSQL et Hive chiffrées en SSL/TLS.
   * **Chiffrement au repos (*At-Rest*) :** Activation du chiffrement transparent des blocs HDFS (*HDFS Transparent Encryption - KMS*) et des volumes disques (AES-256).
-
----
 
 ## 5.3. Gestion des Rôles et Droits d'Accès (Matrice RBAC)
 
@@ -617,10 +684,8 @@ L'accès aux différentes couches de l'architecture est verrouillé selon le **p
 | **Compte de Service ETL (Talend)** | Lecture / Écriture | Lecture / Écriture | Écriture (Insertion) | Aucun accès |
 | **Data Engineer / Admin BDD** | Administration technique | Lecture / Écriture | Administration DDL/DML | Administration technique |
 | **DPO (Délégué Protection Données)**| Audit & Contrôle | Audit & Contrôle | Audit & Contrôle | Audit de conformité |
-| **Praticiens (Médecins / Infirmiers)**|  **Interdit** |  **Interdit** |  Accès direct interdit |  **Lecture seule :** Indicateurs médicaux, diagnostics, âge/sexe, mortalité. |
-| **Direction d'Établissement** |  **Interdit** |  **Interdit** |  Accès direct interdit |  **Lecture seule :** Indicateurs d'affluence, taux d'hospitalisation, satisfaction. |
-
----
+| **Praticiens (Médecins / Infirmiers)**| **Interdit** | **Interdit** | Accès direct interdit | **Lecture seule :** Indicateurs médicaux, diagnostics, âge/sexe, mortalité. |
+| **Direction d'Établissement** | **Interdit** | **Interdit** | Accès direct interdit | **Lecture seule :** Indicateurs d'affluence, taux d'hospitalisation, satisfaction. |
 
 ## 5.4. Traçabilité des Flux (Data Lineage) et Cycle de Vie des Données
 
