@@ -35,6 +35,7 @@ Dans le cadre de sa transformation digitale, le groupe CHU centralise des donné
 │   docs/                                               # Documentation générale et livrables
 │   ├── Livrable_1_Referentiel_et_Architecture.pdf
 │   ├── Livrable_1_Referentiel_et_Architecture.md
+│   ├── Correction_Livrable_1.md
 │   ├── Livrable_2_Implementation_et_Performance.pdf
 │   ├── Livrable_2_Implementation_et_Performance.md
 │   └── Livrable_3_Presentation_Storytelling.pptx
