@@ -5,7 +5,7 @@
 
 Dernière mise à jour : 04/11/2026
 
-Editeur : ProSoft
+Editeur :
 - Quentin HAZEMANN
 - Jason KOUAM KAMDEM
 - Ulysse BRULEY
@@ -31,17 +31,31 @@ Dans le cadre de sa transformation digitale, le groupe CHU centralise des donné
 ## 📁 Structure du Dépôt
 ```text
 .
-├── README.md                                           # Ce fichier
-│   docs/                                               # Documentation générale et livrables
-│   ├── Livrable_1_Referentiel_et_Architecture.pdf
-│   ├── Livrable_1_Referentiel_et_Architecture.md
-│   ├── Correction_Livrable_1.md
-│   ├── Livrable_2_Implementation_et_Performance.pdf
-│   ├── Livrable_2_Implementation_et_Performance.md
-│   └── Livrable_3_Presentation_Storytelling.pptx
-├── sql/                                                # Scripts SQL versionnés
-├── etl/                                                # Pipelines d'intégration et scripts de transformation
-└── dashboards/                                         # Fichiers sources des tableaux de bord (PBIX, export Superset)
+├── README.md                                                   # Ce fichier
+├── docs/                                                       # Documentation générale et livrables
+│   ├── projet.pdf                                              # Sujet du projet
+│   ├── livrable_1/                                             # Documentation du livrable 1
+│   │   ├── Livrable_1_Referentiel_et_Architecture.pdf
+│   │   ├── Livrable_1_Referentiel_et_Architecture.md
+│   │   ├── correction_livrable_1.md
+│   │   └── grille_livrable_1.xlsx
+│   ├── livrable_2/                                             # Documentation du livrable 2
+│   │   ├── Livrable_2_Implementation_et_Evaluation.pdf
+│   │   └── Livrable_2_Implementation_et_Evaluation.md
+│   ├── captures/                                               # Captures utilisées dans les livrables
+│   │   └── ...
+│   ├── livrable_3/                                             # Documentation du livrable 3
+│   │   └── Livrable_3_Presentation.pptx
+│   └── DATA 2024/                                              # Data utilisées pour ce projet (.gitingore)
+│       └── ...
+└── scripts/                                                    # Scripts du projet
+    ├── architecture_dossiers/
+    │   └── architecture_cloudera_hdfs.bat                      # Script permettant d'installer l'architecture dossier dans cloudera
+    └── sql/
+        ├── bronze/                                             # Script utlisé pour la couche bronze
+        ├── silver/                                             # Script utlisé pour la couche silver
+        ├── gold/                                               # Script utlisé pour la couche gold
+        └── parametres/                                         # Script utlisé pour le paramétrage sql
 ```
 
 ## 🛠️ Installation et Déploiement
