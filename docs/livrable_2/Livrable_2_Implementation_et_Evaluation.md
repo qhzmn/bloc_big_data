@@ -189,6 +189,7 @@ Ulysse • Quentin • Jason</p>
   - [5.2. Tableau Comparatif des Temps de Réponse Mesurés sous Apache Hive](#52-tableau-comparatif-des-temps-de-réponse-mesurés-sous-apache-hive)
   - [5.3. Graphique Comparatif et Interprétation Technique des Gains](#53-graphique-comparatif-et-interprétation-technique-des-gains)
     - [Analyse critique et interprétation des résultats observés :](#analyse-critique-et-interprétation-des-résultats-observés-)
+- [6. Synthèse du livrable](#6-synthèse-du-livrable)
 
 <div class="page-break"></div>
 
@@ -484,7 +485,6 @@ flowchart TD
 3. **Bucketing en 4 Buckets (`CLUSTERED BY ... INTO 4 BUCKETS`) :**
    * Au sein de chaque répertoire de partition, Hive répartit les enregistrements dans **4 fichiers de taille homogène** (`000000_0` à `000003_0`) selon le hachage de l'année ou de la clé temporelle, parallélisant le travail des 4 Reducers MapReduce.
 
-<div class="page-break"></div>
 
 ## 2.2. Scripts HiveQL de Partitionnement et de Bucketing
 
@@ -814,3 +814,11 @@ Les mesures de performance ont été réalisées directement sur la machine virt
    * La table `FAIT_HOSPITALISATIONS` ne contient que **2 479 lignes (284 Ko)**. Sur un fichier aussi léger, Hive exécute une lecture directe (*Fetch task* sans démarrage de conteneurs YARN) en **8,22 secondes**.
    * En revanche, lorsque cette petite table de 284 Ko est découpée en multiples sous-dossiers de partitions annuelles contenant chacun 4 fichiers Buckets, Hive doit instancier un job MapReduce complet et ouvrir des dizaines de petits fichiers quasi vides sur le *NameNode* HDFS, ce qui porte le temps d'exécution à **28,72 secondes** (temps incompressible d'allocation des conteneurs Java MapReduce sur la VM).
    * **Recommandation d'architecture :** Cette mesure expérimentale démontre que le partitionnement et le bucketing sous Hive doivent être réservés aux tables volumineuses (> plusieurs dizaines de Mo ou Go comme `FAIT_DECES`), tandis que les petites tables (< 1 Mo comme `FAIT_HOSPITALISATIONS`) doivent rester dans un fichier unique ou être interrogées en mémoire via **Impala** ou **Microsoft Power BI**.
+
+<div class="page-break"></div>
+
+# 6. Synthèse du livrable 
+
+Ce livrable présente la mise en œuvre complète de l'architecture de données et de la chaîne décisionnelle, depuis l'ingestion brute jusqu'aux couches de restitution optimisées sur un cluster Cloudera (HDFS / Apache Hive). La suite de ce travail, incluant la conception des tableaux de bord interactifs sous Power BI, fait l'objet du Livrable 3.
+
+> L'ensemble des codes (jobs Talend, scripts DDL/DML, HiveQL et requêtes de benchmark) est versionné et consultable sur le dépôt [GitHub du projet](https://github.com/qhzmn/bloc_big_data).
