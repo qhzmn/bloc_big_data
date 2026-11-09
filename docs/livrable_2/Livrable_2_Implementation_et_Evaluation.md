@@ -189,6 +189,8 @@ Ulysse • Quentin • Jason</p>
   - [5.2. Tableau Comparatif des Temps de Réponse Mesurés sous Apache Hive](#52-tableau-comparatif-des-temps-de-réponse-mesurés-sous-apache-hive)
   - [5.3. Graphique Comparatif et Interprétation Technique des Gains](#53-graphique-comparatif-et-interprétation-technique-des-gains)
     - [Analyse critique et interprétation des résultats observés :](#analyse-critique-et-interprétation-des-résultats-observés-)
+- [6. Restitution Analytique et Tableaux de Bord Décisionnels (Power BI)](#6-restitution-analytique-et-tableaux-de-bord-décisionnels-power-bi)
+  - [6.1 Transition vers la Couche de Restitution (Livrable 3)](#61-transition-vers-la-couche-de-restitution-livrable-3)
 - [6. Synthèse du livrable](#6-synthèse-du-livrable)
 
 <div class="page-break"></div>
@@ -814,6 +816,19 @@ Les mesures de performance ont été réalisées directement sur la machine virt
    * La table `FAIT_HOSPITALISATIONS` ne contient que **2 479 lignes (284 Ko)**. Sur un fichier aussi léger, Hive exécute une lecture directe (*Fetch task* sans démarrage de conteneurs YARN) en **8,22 secondes**.
    * En revanche, lorsque cette petite table de 284 Ko est découpée en multiples sous-dossiers de partitions annuelles contenant chacun 4 fichiers Buckets, Hive doit instancier un job MapReduce complet et ouvrir des dizaines de petits fichiers quasi vides sur le *NameNode* HDFS, ce qui porte le temps d'exécution à **28,72 secondes** (temps incompressible d'allocation des conteneurs Java MapReduce sur la VM).
    * **Recommandation d'architecture :** Cette mesure expérimentale démontre que le partitionnement et le bucketing sous Hive doivent être réservés aux tables volumineuses (> plusieurs dizaines de Mo ou Go comme `FAIT_DECES`), tandis que les petites tables (< 1 Mo comme `FAIT_HOSPITALISATIONS`) doivent rester dans un fichier unique ou être interrogées en mémoire via **Impala** ou **Microsoft Power BI**.
+
+<div class="page-break"></div>
+
+# 6. Restitution Analytique et Tableaux de Bord Décisionnels (Power BI)
+
+## 6.1 Transition vers la Couche de Restitution (Livrable 3)
+
+La mise en place de la modélisation en étoile en couche Gold et l'optimisation des performances sous Apache Hive constituent le socle technique indispensable à la restitution visuelle.
+
+Pour répondre aux besoins métiers exprimés par les praticiens et la direction de l'établissement, les données consolidées et agrégées sont connectées à l'outil de Business Intelligence Microsoft Power BI.
+
+![Power BI : Pilotage direction](../captures/capture_powerBI_pilotage_direction.png)
+![Power BI : Suivi Praticien](../captures/capture_powerBI_suivi_praticiens.png)
 
 <div class="page-break"></div>
 
