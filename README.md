@@ -45,6 +45,7 @@ Dans le cadre de sa transformation digitale, le groupe CHU centralise des donné
 │   ├── captures/                                               # Captures utilisées dans les livrables
 │   │   └── ...
 │   ├── livrable_3/                                             # Documentation du livrable 3
+│   │   ├── Livrable_3_PowerBI.pbix
 │   │   └── Livrable_3_Presentation.pptx
 │   └── DATA 2024/                                              # Data utilisées pour ce projet (.gitingore)
 │       └── ...
